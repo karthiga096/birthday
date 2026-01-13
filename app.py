@@ -17,8 +17,8 @@ st.markdown(f"""
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 25vw;   /* 25% of screen width — really big */
-    max-width: 400px; /* maximum width so it doesn't break layout */
+    width: 30vw;  
+    max-width: 400px;
     z-index: 9999;
 }}
 
@@ -27,15 +27,42 @@ st.markdown(f"""
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: 25vw;   /* 25% of screen width */
+    width: 30vw;
     max-width: 400px;
     z-index: 9999;
+}}
+
+/* Quotes styling */
+.corner-quote {{
+    position: fixed;
+    width: 200px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FF1493; /* Pinkish color */
+    text-align: center;
+    z-index: 9999;
+}}
+
+/* Left quote below left image */
+.left-quote {{
+    left: 20px;
+    top: calc(50% + 220px);  /* adjust 220px below image center */
+}}
+
+/* Right quote below right image */
+.right-quote {{
+    right: 20px;
+    top: calc(50% + 220px);
 }}
 </style>
 
 <img src="data:image/jpeg;base64,{left_base64}" class="left-img">
 <img src="data:image/jpeg;base64,{right_base64}" class="right-img">
+
+<div class="corner-quote left-quote">"You are my heart, my soul, my everything ❤️"</div>
+<div class="corner-quote right-quote">"Love you to the moon and back 🌙💖"</div>
 """, unsafe_allow_html=True)
+
 
 # CSS to show
 import streamlit as st
