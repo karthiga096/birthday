@@ -1,32 +1,58 @@
 import streamlit as st
 import base64
+import random
 
-# Function to convert image to base64
+# -----------------------------
+# Convert images to base64
+# -----------------------------
 def image_to_base64(image_path):
     with open(image_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-# Convert your images
 left_base64 = image_to_base64("left.png")
 right_base64 = image_to_base64("right.png")
+
+# -----------------------------
+# Love / emotional slogans
+# -----------------------------
+slogans = [
+    "You are my everything ❤️",
+    "Forever and always, my love 💖",
+    "Every moment with you is magic ✨",
+    "You make my heart smile 😘",
+    "To the moon and back 🌙💞",
+    "You complete my world 🌹",
+    "Love you endlessly 💕",
+    "You are my sunshine ☀️",
+    "Every heartbeat whispers your name 💓",
+]
+
+# Pick 3 random slogans to display
+slogan_1 = random.choice(slogans)
+slogan_2 = random.choice(slogans)
+slogan_3 = random.choice(slogans)
+
+# -----------------------------
+# Display images, quotes, slogans, and icons
+# -----------------------------
 st.markdown(f"""
 <style>
+/* Corner images */
 .left-img {{
     position: fixed;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 220px;   /* BIG SIZE */
+    width: 220px;
     max-width: 250px;
     z-index: 9999;
 }}
-
 .right-img {{
     position: fixed;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: 220px;   /* BIG SIZE */
+    width: 220px;
     max-width: 250px;
     z-index: 9999;
 }}
@@ -34,35 +60,70 @@ st.markdown(f"""
 /* Quotes styling */
 .corner-quote {{
     position: fixed;
-    width: 200px;
+    width: 220px;
     font-size: 18px;
     font-weight: bold;
-    color: #FF1493; /* Romantic pink */
+    color: #FF1493;
     text-align: center;
     z-index: 9999;
 }}
 
-/* Left quote below left image */
-.left-quote {{
-    left: 10px;
-    top: calc(50% + 130px);  /* below image */
+/* Left quote */
+.left-quote {{ left: 10px; top: calc(50% + 130px); }}
+/* Right quote */
+.right-quote {{ right: 10px; top: calc(50% + 130px); }}
+
+/* Slogans styling */
+.slogan {{
+    text-align: center;
+    font-size: 20px;
+    color: #FF69B4;
+    font-weight: bold;
+    margin: 10px 0;
 }}
 
-/* Right quote below right image */
-.right-quote {{
-    right: 10px;
-    top: calc(50% + 130px);
+/* Floating icons */
+.icon {{
+    position: fixed;
+    font-size: 24px;
+    z-index: 9998;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.8;
+}}
+.icon1 {{ top: 15%; left: 25%; }}
+.icon2 {{ top: 35%; right: 20%; }}
+.icon3 {{ top: 55%; left: 35%; }}
+.icon4 {{ top: 70%; right: 30%; }}
+.icon5 {{ top: 85%; left: 40%; }}
+
+/* Floating animation */
+@keyframes float {{
+    0% {{ transform: translateY(0px); }}
+    50% {{ transform: translateY(-15px); }}
+    100% {{ transform: translateY(0px); }}
 }}
 </style>
 
+<!-- Corner Images -->
 <img src="data:image/png;base64,{left_base64}" class="left-img">
 <img src="data:image/png;base64,{right_base64}" class="right-img">
 
+<!-- Main corner quotes -->
 <div class="corner-quote left-quote">"You are my heart, my soul, my everything ❤️"</div>
 <div class="corner-quote right-quote">"Love you to the moon and back 🌙💖"</div>
+
+<!-- Slogans below center -->
+<div class="slogan">{slogan_1}</div>
+<div class="slogan">{slogan_2}</div>
+<div class="slogan">{slogan_3}</div>
+
+<!-- Decorative floating icons -->
+<div class="icon icon1">❤️</div>
+<div class="icon icon2">✨</div>
+<div class="icon icon3">💖</div>
+<div class="icon icon4">🌹</div>
+<div class="icon icon5">🌟</div>
 """, unsafe_allow_html=True)
-
-
 
 # CSS to show
 import streamlit as st
