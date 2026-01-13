@@ -10,7 +10,6 @@ def image_to_base64(image_path):
 left_base64 = image_to_base64("left.jpeg")
 right_base64 = image_to_base64("right.jpeg")
 
-
 st.markdown(f"""
 <style>
 .left-img {{
@@ -18,7 +17,7 @@ st.markdown(f"""
     top: 50%;
     left: 20px;
     transform: translateY(-50%);
-    width: 120px;
+    width: 260px;   /* BIG SIZE */
     z-index: 9999;
 }}
 
@@ -27,7 +26,7 @@ st.markdown(f"""
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
-    width: 120px;
+    width: 260px;  /* BIG SIZE */
     z-index: 9999;
 }}
 </style>
