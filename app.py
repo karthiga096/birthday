@@ -5,8 +5,8 @@ import base64
 # Paths to your images on your PC
 # Example: "C:/Users/YourName/Pictures/left.png"
 # -----------------------------
-left_image_path = "d:\Users\Admin\Pictures\WhatsApp Image 2025-02-18 at 5.44.32 PM.jpeg"   # replace with your path
-right_image_path = "d:\Users\Admin\Pictures\WhatsApp Image 2025-02-18 at 5.44.32 PM.jpeg" # replace with your path
+left_image_path = r"d:\Users\Admin\Pictures\WhatsApp Image 2025-02-18 at 5.44.32 PM.jpeg"
+right_image_path = r"d:\Users\Admin\Pictures\WhatsApp Image 2025-02-18 at 5.45.00 PM.jpeg"
 
 # Function to convert local image to base64
 def image_to_base64(image_path):
