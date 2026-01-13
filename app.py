@@ -18,20 +18,24 @@ st.markdown("""
 <style>
 /* Background gradient */
 .stApp {
-    background: linear-gradient(to right, #FFF0F5, #FFE4E1);
+    background: linear-gradient(to right, #FFF5EE, #FFE4C4);  /* Light, warm colors for contrast */
+    color: black; /* Default text color */
+}
+
+/* Header */
+h1, h2, p, div.stInfo, div.stSuccess {
+    color: black !important;
 }
 
 /* Header */
 h1 {
     text-align: center;
-    color: black;
     font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 /* Caption */
 p.caption {
     text-align: center;
-    color: black;
     font-size: 18px;
 }
 
@@ -40,7 +44,7 @@ div.stInfo, div.stSuccess {
     border-radius: 15px;
     padding: 20px;
     font-size: 18px;
-    background-color: #FFF8F8;
+    background-color: #FFF8F0;  /* Slightly off-white for visibility */
     color: black !important;
 }
 
@@ -50,6 +54,15 @@ div.stButton button {
     color: black;
     border-radius: 10px;
     padding: 8px 16px;
+    font-weight: bold;
+}
+
+/* Surprise message */
+.surprise {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -80,8 +93,8 @@ daily_messages = [
 # Special Birthday Message
 # -----------------------------
 special_birthday_message = """
-<h2 style='text-align:center; color:black;'>🎉 HAPPY BIRTHDAY MUNISH! 🎂❤️</h2>
-<p style='text-align:center; color:black; font-size:20px;'>
+<h2 style='text-align:center;'>🎉 HAPPY BIRTHDAY MUNISH! 🎂❤️</h2>
+<p style='text-align:center; font-size:20px;'>
 Today is YOUR special day, my love! 💖<br>
 Munish, you are my everything, my reason to smile, my heart's home.<br>
 May this year bring you endless joy, love, and all your dreams come true.<br>
@@ -110,7 +123,7 @@ else:
     index = (today - datetime.date(today.year, 1, 1)).days % len(daily_messages)
     message = daily_messages[index]
     st.info(f"{message}")
-    st.markdown(f"<p style='color:black;'>⏳ Days left until Feb 4, 2026: <b>{days_left} days</b></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='color:black; font-weight:bold;'>⏳ Days left until Feb 4, 2026: <b>{days_left} days</b></p>", unsafe_allow_html=True)
 
 # -----------------------------
 # Extra Surprise Message
@@ -125,4 +138,5 @@ if st.button("Generate Extra Message"):
         "Munish, you are my forever favorite. 💕",
         "Love you endlessly, today and always. 🌹"
     ]
-    st.write(random.choice(extra_messages))
+    surprise_message = random.choice(extra_messages)
+    st.markdown(f"<p class='surprise'>{surprise_message}</p>", unsafe_allow_html=True)
