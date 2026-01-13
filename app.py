@@ -1,9 +1,16 @@
+import streamlit as st
+import base64
 
+# Function to convert image to base64
+def image_to_base64(image_path):
+    with open(image_path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
 
+# Convert your images
+left_base64 = image_to_base64("left.png")
+right_base64 = image_to_base64("right.png")
 
-
-
-
+# CSS to show
 import streamlit as st
 import datetime
 import random
