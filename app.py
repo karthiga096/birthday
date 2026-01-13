@@ -19,7 +19,7 @@ import random
 # Page Config
 # -----------------------------
 st.set_page_config(
-    page_title="❤️ Birthday Wishes for thango",
+    page_title="❤️ Birthday Wishes for thangoo",
     page_icon="🎉",
     layout="centered"
 )
