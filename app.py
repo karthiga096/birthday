@@ -17,8 +17,8 @@ st.markdown(f"""
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 30vw;  
-    max-width: 400px;
+    width: 150px;   /* SMALLER IMAGE */
+    max-width: 180px;
     z-index: 9999;
 }}
 
@@ -27,32 +27,32 @@ st.markdown(f"""
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: 30vw;
-    max-width: 400px;
+    width: 150px;   /* SMALLER IMAGE */
+    max-width: 180px;
     z-index: 9999;
 }}
 
 /* Quotes styling */
 .corner-quote {{
     position: fixed;
-    width: 200px;
-    font-size: 18px;
+    width: 160px;
+    font-size: 16px;
     font-weight: bold;
-    color: #FF1493; /* Pinkish color */
+    color: #FF1493; /* Pink color for love */
     text-align: center;
     z-index: 9999;
 }}
 
 /* Left quote below left image */
 .left-quote {{
-    left: 20px;
-    top: calc(50% + 220px);  /* adjust 220px below image center */
+    left: 10px;
+    top: calc(50% + 100px);  /* adjust below image */
 }}
 
 /* Right quote below right image */
 .right-quote {{
-    right: 20px;
-    top: calc(50% + 220px);
+    right: 10px;
+    top: calc(50% + 100px);
 }}
 </style>
 
