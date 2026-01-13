@@ -7,8 +7,8 @@ def image_to_base64(image_path):
         return base64.b64encode(f.read()).decode()
 
 # Convert your images
-left_base64 = image_to_base64("left.jpeg")
-right_base64 = image_to_base64("right.jpeg")
+left_base64 = image_to_base64("left.png")
+right_base64 = image_to_base64("right.png")
 st.markdown(f"""
 <style>
 .left-img {{
@@ -55,8 +55,8 @@ st.markdown(f"""
 }}
 </style>
 
-<img src="data:image/jpeg;base64,{left_base64}" class="left-img">
-<img src="data:image/jpeg;base64,{right_base64}" class="right-img">
+<img src="data:image/png;base64,{left_base64}" class="left-img">
+<img src="data:image/png;base64,{right_base64}" class="right-img">
 
 <div class="corner-quote left-quote">"You are my heart, my soul, my everything ❤️"</div>
 <div class="corner-quote right-quote">"Love you to the moon and back 🌙💖"</div>
