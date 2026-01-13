@@ -1,84 +1,61 @@
 import streamlit as st
-import random
 import datetime
 
 # -----------------------------
-# Streamlit Page Config
+# Page Config
 # -----------------------------
 st.set_page_config(
-    page_title="🎂 Birthday Wish for Munish",
+    page_title="❤️ Birthday Wishes for Munish",
     page_icon="🎉",
     layout="centered"
 )
 
 st.markdown(
-    """
-    <h1 style='text-align: center; color: #FF4B4B;'>🎂 Daily Birthday Wish for Munish ❤️</h1>
-    """, unsafe_allow_html=True
+    "<h1 style='text-align:center; color:#FF4B4B;'>Daily Love Wish for Munish ❤️</h1>",
+    unsafe_allow_html=True
+)
+st.markdown(
+    "<p style='text-align:center; color:#FF6F61;'>A heartfelt message every day until Feb 4, 2026</p>",
+    unsafe_allow_html=True
 )
 
-st.markdown("<p style='text-align: center; color: #FF6F61;'>ML-style wishes until Feb 4, 2026</p>", unsafe_allow_html=True)
+# -----------------------------
+# Pre-written Daily Messages
+# -----------------------------
+daily_messages = [
+    "Good morning, Munish! 🌞 Just a reminder: You are the most special part of my life.",
+    "Hey love, thinking of you makes my day brighter. ❤️",
+    "Munish, your smile is my favorite thing in the world. 😘",
+    "Every moment with you is magical. Love you endlessly! 💖",
+    "Munish, you are my dream come true. I cherish you always.",
+    "Hey sweetheart, your love completes me. 🌹",
+    "Every day I love you more than yesterday. 💕",
+    "Munish, you are my heart and soul. Never forget that. ❤️",
+    "Hey love, your laughter is my favorite melody. 🎶",
+    "You are my strength and happiness, Munish. I adore you.",
+    # ... add more messages up to Feb 4, 2026
+]
 
 # -----------------------------
-# Training Data (Romantic Wishes)
+# Feb 4 Special Birthday Message
 # -----------------------------
-training_text = """
-Happy birthday Munish my love
-Munish you are the best thing in my life
-Every day with Munish feels magical
-I am proud of everything Munish is
-Munish inspires me to be better
-Munish's smile makes my world brighter
-I believe in Munish's dreams
-Munish deserves endless happiness
-I am always by Munish's side
-My love for Munish grows every day
-Munish is my forever
+special_birthday_message = """
+<h2 style='color:#FF4B4B;'>🎉 HAPPY BIRTHDAY MUNISH! 🎂❤️</h2>
+<p style='color:#FF6F61; font-size:18px;'>
+Today is YOUR special day, my love! 💖<br>
+Munish, you are my everything, my reason to smile, my heart's home.<br>
+May this year bring you endless joy, love, and all your dreams come true.<br>
+I promise to make every moment with you unforgettable. 🤍<br>
+I love you more than words can ever express. ❤️
+</p>
 """
 
 # -----------------------------
-# Markov Chain Model (ML Concept)
-# -----------------------------
-def train_model(text):
-    words = text.split()
-    model = {}
-    for i in range(len(words) - 1):
-        word = words[i]
-        next_word = words[i + 1]
-        if word not in model:
-            model[word] = []
-        model[word].append(next_word)
-    return model
-
-def generate_message(model, length=18):
-    word = random.choice(list(model.keys()))
-    message = [word]
-    for _ in range(length):
-        word = random.choice(model.get(word, list(model.keys())))
-        message.append(word)
-    return " ".join(message)
-
-# -----------------------------
-# Dates
+# Today’s Date
 # -----------------------------
 today = datetime.date.today()
 birthday = datetime.date(2026, 2, 4)
 days_left = (birthday - today).days
-
-model = train_model(training_text)
-
-# -----------------------------
-# Special Birthday Message
-# -----------------------------
-special_birthday_message = """
-<h3 style='color: #FF4B4B;'>🎉🎂 HAPPY BIRTHDAY MUNISH ❤️ 🎂🎉</h3>
-<p style='color: #FF6F61; font-size: 18px;'>
-Today is not just your birthday, it’s the day the world became brighter for me.<br>
-Munish, you are my happiness, my strength, my dream, and my forever.<br>
-May this year bring you success, health, and all the love you deserve.<br>
-I will always stand by you 🤍
-</p>
-"""
 
 # -----------------------------
 # Display Wish
@@ -86,17 +63,27 @@ I will always stand by you 🤍
 st.subheader("📅 Today's Wish")
 
 if today == birthday:
-    st.success("🎉 TODAY IS MUNISH'S BIRTHDAY 🎉")
+    st.success("🎉 TODAY IS MUNISH'S BIRTHDAY! 🎉")
     st.markdown(special_birthday_message, unsafe_allow_html=True)
 else:
-    wish = generate_message(model)
-    st.info(f"❤️ {wish}")
-    st.markdown(f"<p style='color: #FF4B4B;'>⏳ Days left until Feb 4, 2026: <b>{days_left} days</b></p>", unsafe_allow_html=True)
+    # Pick a daily message (cycle through list)
+    index = (today - datetime.date(today.year, 1, 1)).days % len(daily_messages)
+    message = daily_messages[index]
+    st.info(f"💌 {message}")
+    st.markdown(f"<p style='color:#FF4B4B;'>⏳ Days left until Feb 4, 2026: <b>{days_left} days</b></p>", unsafe_allow_html=True)
 
 # -----------------------------
-# Optional: Generate Extra Wish
+# Optional: Show Another Message
 # -----------------------------
 st.divider()
-st.subheader("🔮 Generate Another Wish")
-if st.button("Generate New Wish"):
-    st.write("💌", generate_message(model))
+st.subheader("🔮 Surprise Another Message")
+if st.button("Generate Extra Message"):
+    import random
+    extra_messages = [
+        "Thinking of you always makes me smile, Munish. ❤️",
+        "Every heartbeat whispers your name, my love. 💖",
+        "You are my sunshine on every cloudy day. ☀️",
+        "Munish, you are my forever favorite. 💕",
+        "Love you endlessly, today and always. 🌹"
+    ]
+    st.write("💌", random.choice(extra_messages))
