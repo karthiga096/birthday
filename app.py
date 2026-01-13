@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # -----------------------------
-# Custom CSS (Background, Colors, Cards)
+# Custom CSS (Font Colors)
 # -----------------------------
 st.markdown("""
 <style>
@@ -24,14 +24,14 @@ st.markdown("""
 /* Header */
 h1 {
     text-align: center;
-    color: black;
+    color: black;  /* Header color */
     font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 /* Caption */
 p.caption {
     text-align: center;
-    color: black;
+    color: black;  /* Caption color */
     font-size: 18px;
 }
 
@@ -41,7 +41,7 @@ div.stInfo, div.stSuccess {
     padding: 20px;
     font-size: 18px;
     background-color: #FFF8F8;
-    color: black !important;
+    color: black !important;  /* Message text color */
 }
 
 div.stButton button {
@@ -54,7 +54,7 @@ div.stButton button {
 """, unsafe_allow_html=True)
 
 # -----------------------------
-# Header
+# Page Title
 # -----------------------------
 st.markdown("<h1>Daily Love Wish for Munish ❤️</h1>", unsafe_allow_html=True)
 st.markdown("<p class='caption'>A heartfelt message every day until Feb 4, 2026</p>", unsafe_allow_html=True)
@@ -115,31 +115,10 @@ else:
     st.markdown(f"<p style='color:black;'>⏳ Days left until Feb 4, 2026: <b>{days_left} days</b></p>", unsafe_allow_html=True)
 
 # -----------------------------
-# Extra Features: Surprise Message & Daily Quote
+# Extra Surprise Message
 # -----------------------------
 st.divider()
 st.subheader("🔮 Surprise Another Message")
 if st.button("Generate Extra Message"):
     extra_messages = [
         "Thinking of you always makes me smile, Munish. ❤️",
-        "Every heartbeat whispers your name, my love. 💖",
-        "You are my sunshine on every cloudy day. ☀️",
-        "Munish, you are my forever favorite. 💕",
-        "Love you endlessly, today and always. 🌹"
-    ]
-    emoji = random.choice(emojis)
-    st.write(f"{emoji} {random.choice(extra_messages)} {emoji}")
-
-# Optional: Daily Quote
-daily_quotes = [
-    "“You are my today and all of my tomorrows.” – Leo Christopher",
-    "“I fell in love with you because of all the little things you do.”",
-    "“You are the finest, loveliest, tenderest, and most beautiful person I have ever known.”",
-    "“Every love story is beautiful, but ours is my favorite.”",
-    "“You are my heart, my life, my one and only thought.”"
-]
-
-st.divider()
-st.subheader("💌 Daily Love Quote")
-quote = random.choice(daily_quotes)
-st.markdown(f"<p style='text-align:center; color:black; font-size:18px;'>{quote}</p>", unsafe_allow_html=True)
