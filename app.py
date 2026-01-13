@@ -2,7 +2,7 @@ import streamlit as st
 import datetime
 
 # -----------------------------
-# Page Config
+# Streamlit Page Config
 # -----------------------------
 st.set_page_config(
     page_title="❤️ Birthday Wishes for Munish",
@@ -10,14 +10,43 @@ st.set_page_config(
     layout="centered"
 )
 
+# -----------------------------
+# Custom CSS for Background & Colors
+# -----------------------------
 st.markdown(
-    "<h1 style='text-align:center; color:#FF4B4B;'>Daily Love Wish for Munish ❤️</h1>",
-    unsafe_allow_html=True
+    """
+    <style>
+    /* Background gradient */
+    .stApp {
+        background: linear-gradient(to right, #FFD1DC, #FFF0F5);
+    }
+    /* Centered header */
+    h1 {
+        text-align: center;
+        color: #C71585;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    /* Centered caption */
+    p.caption {
+        text-align: center;
+        color: #FF69B4;
+        font-size: 18px;
+    }
+    /* Message box style */
+    .stInfo, .stSuccess {
+        border-radius: 15px;
+        padding: 20px;
+        font-size: 18px;
+    }
+    </style>
+    """, unsafe_allow_html=True
 )
-st.markdown(
-    "<p style='text-align:center; color:#FF6F61;'>A heartfelt message every day until Feb 4, 2026</p>",
-    unsafe_allow_html=True
-)
+
+# -----------------------------
+# Page Title
+# -----------------------------
+st.markdown("<h1>Daily Love Wish for Munish ❤️</h1>", unsafe_allow_html=True)
+st.markdown("<p class='caption'>A heartfelt message every day until Feb 4, 2026</p>", unsafe_allow_html=True)
 
 # -----------------------------
 # Pre-written Daily Messages
@@ -33,15 +62,15 @@ daily_messages = [
     "Munish, you are my heart and soul. Never forget that. ❤️",
     "Hey love, your laughter is my favorite melody. 🎶",
     "You are my strength and happiness, Munish. I adore you.",
-    # ... add more messages up to Feb 4, 2026
+    # ... more messages up to Feb 4
 ]
 
 # -----------------------------
 # Feb 4 Special Birthday Message
 # -----------------------------
 special_birthday_message = """
-<h2 style='color:#FF4B4B;'>🎉 HAPPY BIRTHDAY MUNISH! 🎂❤️</h2>
-<p style='color:#FF6F61; font-size:18px;'>
+<h2 style='color:#C71585; text-align:center;'>🎉 HAPPY BIRTHDAY MUNISH! 🎂❤️</h2>
+<p style='color:#FF1493; font-size:20px; text-align:center;'>
 Today is YOUR special day, my love! 💖<br>
 Munish, you are my everything, my reason to smile, my heart's home.<br>
 May this year bring you endless joy, love, and all your dreams come true.<br>
@@ -51,7 +80,7 @@ I love you more than words can ever express. ❤️
 """
 
 # -----------------------------
-# Today’s Date
+# Today's Date
 # -----------------------------
 today = datetime.date.today()
 birthday = datetime.date(2026, 2, 4)
@@ -66,14 +95,13 @@ if today == birthday:
     st.success("🎉 TODAY IS MUNISH'S BIRTHDAY! 🎉")
     st.markdown(special_birthday_message, unsafe_allow_html=True)
 else:
-    # Pick a daily message (cycle through list)
     index = (today - datetime.date(today.year, 1, 1)).days % len(daily_messages)
     message = daily_messages[index]
     st.info(f"💌 {message}")
-    st.markdown(f"<p style='color:#FF4B4B;'>⏳ Days left until Feb 4, 2026: <b>{days_left} days</b></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='color:#C71585;'>⏳ Days left until Feb 4, 2026: <b>{days_left} days</b></p>", unsafe_allow_html=True)
 
 # -----------------------------
-# Optional: Show Another Message
+# Optional Extra Surprise
 # -----------------------------
 st.divider()
 st.subheader("🔮 Surprise Another Message")
