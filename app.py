@@ -15,18 +15,20 @@ st.markdown(f"""
 .left-img {{
     position: fixed;
     top: 50%;
-    left: 20px;
+    left: 0;
     transform: translateY(-50%);
-    width: 260px;   /* BIG SIZE */
+    width: 25vw;   /* 25% of screen width — really big */
+    max-width: 400px; /* maximum width so it doesn't break layout */
     z-index: 9999;
 }}
 
 .right-img {{
     position: fixed;
     top: 50%;
-    right: 20px;
+    right: 0;
     transform: translateY(-50%);
-    width: 260px;  /* BIG SIZE */
+    width: 25vw;   /* 25% of screen width */
+    max-width: 400px;
     z-index: 9999;
 }}
 </style>
@@ -34,8 +36,6 @@ st.markdown(f"""
 <img src="data:image/jpeg;base64,{left_base64}" class="left-img">
 <img src="data:image/jpeg;base64,{right_base64}" class="right-img">
 """, unsafe_allow_html=True)
-
-
 
 # CSS to show
 import streamlit as st
