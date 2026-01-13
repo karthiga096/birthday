@@ -9,22 +9,24 @@ def image_to_base64(image_path):
 # Convert your images
 left_base64 = image_to_base64("left.jpeg")
 right_base64 = image_to_base64("right.jpeg")
+
+
 st.markdown(f"""
 <style>
-/* Left corner image */
 .left-img {{
     position: fixed;
-    top: 20px;
+    top: 50%;
     left: 20px;
+    transform: translateY(-50%);
     width: 120px;
     z-index: 9999;
 }}
 
-/* Right corner image */
 .right-img {{
     position: fixed;
-    top: 20px;
+    top: 50%;
     right: 20px;
+    transform: translateY(-50%);
     width: 120px;
     z-index: 9999;
 }}
@@ -33,6 +35,7 @@ st.markdown(f"""
 <img src="data:image/jpeg;base64,{left_base64}" class="left-img">
 <img src="data:image/jpeg;base64,{right_base64}" class="right-img">
 """, unsafe_allow_html=True)
+
 
 
 # CSS to show
