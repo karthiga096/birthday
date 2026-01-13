@@ -12,11 +12,11 @@ st.set_page_config(
 )
 
 # -----------------------------
-# Custom CSS (Font Colors)
+# Custom CSS for Background & Black Text
 # -----------------------------
 st.markdown("""
 <style>
-/* Background */
+/* Background gradient */
 .stApp {
     background: linear-gradient(to right, #FFF0F5, #FFE4E1);
 }
@@ -24,26 +24,27 @@ st.markdown("""
 /* Header */
 h1 {
     text-align: center;
-    color: black;  /* Header color */
+    color: black;
     font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 /* Caption */
 p.caption {
     text-align: center;
-    color: black;  /* Caption color */
+    color: black;
     font-size: 18px;
 }
 
-/* Message cards */
+/* Message boxes */
 div.stInfo, div.stSuccess {
     border-radius: 15px;
     padding: 20px;
     font-size: 18px;
     background-color: #FFF8F8;
-    color: black !important;  /* Message text color */
+    color: black !important;
 }
 
+/* Button */
 div.stButton button {
     background-color: #FFB6C1;
     color: black;
@@ -54,7 +55,7 @@ div.stButton button {
 """, unsafe_allow_html=True)
 
 # -----------------------------
-# Page Title
+# Header
 # -----------------------------
 st.markdown("<h1>Daily Love Wish for Munish ❤️</h1>", unsafe_allow_html=True)
 st.markdown("<p class='caption'>A heartfelt message every day until Feb 4, 2026</p>", unsafe_allow_html=True)
@@ -108,10 +109,7 @@ else:
     # Cycle through messages daily
     index = (today - datetime.date(today.year, 1, 1)).days % len(daily_messages)
     message = daily_messages[index]
-    # Add random love emoji
-    emojis = ["❤️","💖","💘","😍","🌹","💌","😘","💝"]
-    emoji = random.choice(emojis)
-    st.info(f"{emoji} {message} {emoji}")
+    st.info(f"{message}")
     st.markdown(f"<p style='color:black;'>⏳ Days left until Feb 4, 2026: <b>{days_left} days</b></p>", unsafe_allow_html=True)
 
 # -----------------------------
@@ -122,3 +120,9 @@ st.subheader("🔮 Surprise Another Message")
 if st.button("Generate Extra Message"):
     extra_messages = [
         "Thinking of you always makes me smile, Munish. ❤️",
+        "Every heartbeat whispers your name, my love. 💖",
+        "You are my sunshine on every cloudy day. ☀️",
+        "Munish, you are my forever favorite. 💕",
+        "Love you endlessly, today and always. 🌹"
+    ]
+    st.write(random.choice(extra_messages))
