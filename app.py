@@ -9,7 +9,6 @@ def image_to_base64(image_path):
 # Convert your images
 left_base64 = image_to_base64("left.jpeg")
 right_base64 = image_to_base64("right.jpeg")
-
 st.markdown(f"""
 <style>
 .left-img {{
@@ -17,8 +16,8 @@ st.markdown(f"""
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 150px;   /* SMALLER IMAGE */
-    max-width: 180px;
+    width: 220px;   /* BIG SIZE */
+    max-width: 250px;
     z-index: 9999;
 }}
 
@@ -27,18 +26,18 @@ st.markdown(f"""
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: 150px;   /* SMALLER IMAGE */
-    max-width: 180px;
+    width: 220px;   /* BIG SIZE */
+    max-width: 250px;
     z-index: 9999;
 }}
 
 /* Quotes styling */
 .corner-quote {{
     position: fixed;
-    width: 160px;
-    font-size: 16px;
+    width: 200px;
+    font-size: 18px;
     font-weight: bold;
-    color: #FF1493; /* Pink color for love */
+    color: #FF1493; /* Romantic pink */
     text-align: center;
     z-index: 9999;
 }}
@@ -46,13 +45,13 @@ st.markdown(f"""
 /* Left quote below left image */
 .left-quote {{
     left: 10px;
-    top: calc(50% + 100px);  /* adjust below image */
+    top: calc(50% + 130px);  /* below image */
 }}
 
 /* Right quote below right image */
 .right-quote {{
     right: 10px;
-    top: calc(50% + 100px);
+    top: calc(50% + 130px);
 }}
 </style>
 
@@ -62,6 +61,7 @@ st.markdown(f"""
 <div class="corner-quote left-quote">"You are my heart, my soul, my everything ❤️"</div>
 <div class="corner-quote right-quote">"Love you to the moon and back 🌙💖"</div>
 """, unsafe_allow_html=True)
+
 
 
 # CSS to show
