@@ -57,7 +57,7 @@ st.markdown(f"""
     z-index: 9999;
 }}
 
-/* Corner slogans below images */
+/* Quotes styling */
 .corner-quote {{
     position: fixed;
     width: 220px;
@@ -68,11 +68,12 @@ st.markdown(f"""
     z-index: 9999;
 }}
 
-/* Position slogans below images dynamically */
-.left-quote {{ left: 0; top: calc(50% + 140px); }}
-.right-quote {{ right: 0; top: calc(50% + 140px); }}
+/* Left quote */
+.left-quote {{ left: 10px; top: calc(50% + 130px); }}
+/* Right quote */
+.right-quote {{ right: 10px; top: calc(50% + 130px); }}
 
-/* Center slogans */
+/* Slogans styling */
 .slogan {{
     text-align: center;
     font-size: 20px;
@@ -84,24 +85,24 @@ st.markdown(f"""
 /* Floating icons */
 .icon {{
     position: fixed;
-    font-size: 28px;
+    font-size: 24px;
     z-index: 9998;
-    animation: float 5s ease-in-out infinite;
-    opacity: 0.9;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.8;
 }}
-
-/* Individual floating icons */
-.icon1 {{ top: 15%; left: 25%; }}  /* Heart */
-.icon2 {{ top: 35%; right: 20%; }} /* Sparkle */
-.icon3 {{ top: 55%; left: 35%; }}  /* Heart */
-.icon4 {{ top: 70%; right: 30%; }} /* Rose */
-.icon5 {{ top: 85%; left: 40%; }}  /* Star */
-.icon6 {{ top: 25%; left: 60%; }}  /* Kiss */
-.icon7 {{ top: 60%; right: 10%; }} /* Kiss */
+.icon1 {{ top: 15%; left: 25%; }}
+.icon2 {{ top: 35%; right: 20%; }}
+.icon3 {{ top: 55%; left: 35%; }}
+.icon4 {{ top: 70%; right: 30%; }}
+.icon5 {{ top: 85%; left: 40%; }}
 
 /* Floating animation */
 @keyframes float {{
     0% {{ transform: translateY(0px); }}
+    50% {{ transform: translateY(-15px); }}
+    100% {{ transform: translateY(0px); }}
+}}
+</style>
 
 <!-- Corner Images -->
 <img src="data:image/png;base64,{left_base64}" class="left-img">
@@ -266,4 +267,4 @@ if st.button("Generate Extra Message"):
         "Love you endlessly, today and always. 🌹"
     ]
     surprise_message = random.choice(extra_messages)
-    st.markdown(f"<p class='surprise'>{surprise_message}</p>", unsafe_allow_html=True)
+    st.markdown(f"<p class='surprise'>{surprise_message}</p>", unsafe_allow_html=True)    
