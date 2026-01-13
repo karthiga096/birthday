@@ -57,7 +57,7 @@ st.markdown(f"""
     z-index: 9999;
 }}
 
-/* Quotes styling */
+/* Corner slogans below images */
 .corner-quote {{
     position: fixed;
     width: 220px;
@@ -68,12 +68,11 @@ st.markdown(f"""
     z-index: 9999;
 }}
 
-/* Left quote */
-.left-quote {{ left: 10px; top: calc(50% + 130px); }}
-/* Right quote */
-.right-quote {{ right: 10px; top: calc(50% + 130px); }}
+/* Position slogans below images dynamically */
+.left-quote {{ left: 0; top: calc(50% + 140px); }}
+.right-quote {{ right: 0; top: calc(50% + 140px); }}
 
-/* Slogans styling */
+/* Center slogans */
 .slogan {{
     text-align: center;
     font-size: 20px;
@@ -85,24 +84,24 @@ st.markdown(f"""
 /* Floating icons */
 .icon {{
     position: fixed;
-    font-size: 24px;
+    font-size: 28px;
     z-index: 9998;
-    animation: float 6s ease-in-out infinite;
-    opacity: 0.8;
+    animation: float 5s ease-in-out infinite;
+    opacity: 0.9;
 }}
-.icon1 {{ top: 15%; left: 25%; }}
-.icon2 {{ top: 35%; right: 20%; }}
-.icon3 {{ top: 55%; left: 35%; }}
-.icon4 {{ top: 70%; right: 30%; }}
-.icon5 {{ top: 85%; left: 40%; }}
+
+/* Individual floating icons */
+.icon1 {{ top: 15%; left: 25%; }}  /* Heart */
+.icon2 {{ top: 35%; right: 20%; }} /* Sparkle */
+.icon3 {{ top: 55%; left: 35%; }}  /* Heart */
+.icon4 {{ top: 70%; right: 30%; }} /* Rose */
+.icon5 {{ top: 85%; left: 40%; }}  /* Star */
+.icon6 {{ top: 25%; left: 60%; }}  /* Kiss */
+.icon7 {{ top: 60%; right: 10%; }} /* Kiss */
 
 /* Floating animation */
 @keyframes float {{
     0% {{ transform: translateY(0px); }}
-    50% {{ transform: translateY(-15px); }}
-    100% {{ transform: translateY(0px); }}
-}}
-</style>
 
 <!-- Corner Images -->
 <img src="data:image/png;base64,{left_base64}" class="left-img">
